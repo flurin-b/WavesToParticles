@@ -61,8 +61,8 @@ def main(scene_image_fn, num_iterations, simulation_steps_per_frame, write_video
 
     # create video writers
     if write_videos:
-        video_writer1 = cv2.VideoWriter('simulation_field.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 50, (scene_image.shape[1], scene_image.shape[0]))
-        video_writer2 = cv2.VideoWriter('simulation_intensity.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 50, (scene_image.shape[1], scene_image.shape[0]))
+        video_writer1 = cv2.VideoWriter('output/simulation_field.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 50, (scene_image.shape[1], scene_image.shape[0]))
+        video_writer2 = cv2.VideoWriter('output/simulation_intensity.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 50, (scene_image.shape[1], scene_image.shape[0]))
 
     # run simulation
 
@@ -102,6 +102,7 @@ def main(scene_image_fn, num_iterations, simulation_steps_per_frame, write_video
             if write_videos:
                 video_writer1.write(frame_field)
                 video_writer2.write(frame_int)
+    cv2.destroyAllWindows()
 
 
 # SET YOUR SIMULATION PARAMETERS HERE:
